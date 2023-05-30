@@ -11,94 +11,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <script>
-        function validateForm() {
-            var name = document.forms["contactForm"]["name"].value;
-            var email = document.forms["contactForm"]["email"].value;
-            var message = document.forms["contactForm"]["message"].value;
 
-            if (name == "" || email == "" || message == "") {
-                alert("All fields must be filled out");
-                return false;
-            }
-
-            var emailRegex = /^\S+@\S+\.\S+$/;
-            if (!email.match(emailRegex)) {
-                alert("Please enter a valid email address");
-                return false;
-            }
-        }
-    </script>
 
 </head>
 
 <body>
 
-    <nav>
-        <div class="nav__content">
+    <form action="send_email.php" method="post">
+        <label for="name">Your Name</label>
+        <input type="text" name="name" placeholder="Your name..">
+        <label for="lname">Email</label>
+        <input type="email" name="email" placeholder="Your email..">
 
-            <label for="check" class="checkbox">
-                <i class="ri-menu-line"></i>
-            </label>
-            <input type="checkbox" name="check" id="check" />
-            <ul>
-                <li><a href="index.html">About Me</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="contact.html">Contact</a></li>
-
-
-            </ul>
-            <div class="socialtop">
-                <div class='top-social'>
-                    <a href='https://www.facebook.com/dmitriy.belenkiy'><i class='fa fa-facebook'></i></a>
-                    <a href='https://www.instagram.com/_dimany4_/'><i class='fa fa-instagram'></i></a>
-                    <a href="https://www.linkedin.com/in/dmitry-belenky-697902267/"><i class='fa fa-linkedin'></i></a>
-                </div>
-            </div>
-    </nav>
-
-
-    <div class="container">
-        <div class="content">
-            <div class="left-side">
-                <div class="address details">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div class="topic">Address</div>
-                    <div class="text-one">Surkhet, NP12</div>
-                    <div class="text-two">Birendranagar 06</div>
-                </div>
-                <div class="phone details">
-                    <i class="fas fa-phone-alt"></i>
-                    <div class="topic">Phone</div>
-                    <div class="text-one">+0098 9893 5647</div>
-                    <div class="text-two">+0096 3434 5678</div>
-                </div>
-                <div class="email details">
-                    <i class="fas fa-envelope"></i>
-                    <div class="topic">Email</div>
-                    <div class="text-one">codinglab@gmail.com</div>
-                    <div class="text-two">info.codinglab@gmail.com</div>
-                </div>
-            </div>
-            <div class="right-side">
-                <div class="topic-text">Send us a message</div>
-                <form name="contactForm" method="post" action="send_email.php" onsubmit="return validateForm()">
-                    <div class="input-box">
-                        <input type="text" name="name" required placeholder="Enter your name">
-                    </div>
-                    <div class="input-box">
-                        <input type="text" name="email" required placeholder="Enter your email">
-                    </div>
-                    <div class="input-box message-box">
-                        <textarea name="message" required placeholder="Text your message"></textarea>
-                    </div>
-                    <div class="button">
-                        <input type="submit" value="Send Now">
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+        <label for="message">Message</label>
+        <textarea name="message" placeholder="Write something.." style="height:200px"></textarea>
+        <input type="submit" value="Submit">
+    </form>
 </body>
 
 </html>
